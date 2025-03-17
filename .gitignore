@@ -40,7 +40,7 @@ next-env.d.ts
 # lock files
 # *.lock
 
-.env
+# .env
 
 .npmrc
 src/client/
