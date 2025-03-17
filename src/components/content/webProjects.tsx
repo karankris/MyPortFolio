@@ -24,9 +24,9 @@ export const InternProject = () => {
         title="My Web Development Projects Showcase"
         content={`A collection of my web development projects, highlighting my journey, skills, and creativity in crafting functional and visually appealing web applications.`}
       />
-      <div className="max-w-2xl w-full px-4">
-        <div className="h-auto w-full overflow-x-hidden overflow-y-hidden sm:overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 p-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-6 min-w-max">
+      <div className="max-w-2xl w-full pr-4 sm:px-4">
+        <div className="h-auto w-full overflow-x-hidden overflow-y-hidden sm:overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 p-2 f">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-6 sm:min-w-max ">
             {projects.map((project, index) => (
               <article key={index} className="p-2 rounded-lg shadow-lg transition duration-500 hover:scale-110 transform">
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
