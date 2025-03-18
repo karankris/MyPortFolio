@@ -9,7 +9,7 @@ const TypewriterText = () => {
          <span className="relative w-[max-content] font-mono  text-gray-800 dark:text-gray-200 flex">
                 <Typewriter
                     options={{
-                        strings: ["Full Stack Developer", "Tutor"],
+                        strings: ["Full Stack Dev", "Tutor"],
                         autoStart: true,
                         loop: true,
 

@@ -58,12 +58,6 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'holopin.me',
-        port: '',
-        pathname: '/**'
-      },
-      {
-        protocol: 'https',
         hostname: 'raw.githubusercontent.com',
         port: '',
         pathname: '/**'

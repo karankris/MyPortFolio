@@ -5,7 +5,6 @@ export const siteConfig: {
   author_surname: string;
   titlePrefix: string;
   profile_image: string;
-  form_id: string;
   github_org_name: string;
   country: string;
   social: {
@@ -18,16 +17,9 @@ export const siteConfig: {
     linkedin: string;
     exp:string;
     blog: string;
-    medium: string;
     dev: string;
     hashnode: string;
     discord: string;
-    github_organisation: string;
-    daily_dev: {
-      username: string;
-      card: string;
-    };
-    holopin: string;
     freelance:string;
   };
   chatbot: {
@@ -45,8 +37,8 @@ export const siteConfig: {
 
 
 } = {
-  baseUrl: 'https://muhammadfiaz.com',
-  domain: 'muhammadfiaz.com',
+  baseUrl: 'https://karanravichandar.vercel.app/',
+  domain: 'karanravichandar.vercel.app',
   author: 'Karan R',
   author_surname: 'Ravichandar',
   titlePrefix: 'Karan',
@@ -54,7 +46,6 @@ export const siteConfig: {
   country: 'India',
   profile_image:
     'https://avatars.githubusercontent.com/u/169872029?s=400&u=37e2ca6afb836b4cef9a6b16f0e262407c31d15b&v=4',
-  form_id: 'https://formspree.io/f/myzynpbr',
   social: {
     freelance:'https://karankris.github.io/Vikaan_Shelters/',
     exp:'https://www.linkedin.com/in/karanravichandar/details/experience/',
@@ -62,20 +53,13 @@ export const siteConfig: {
     sponsor: 'https://ko-fi.com/karan3009',
     email: 'rkaran0930@gmail.com',
     superProof:'https://www.superprof.co.in/master-full-stack-programming-learn-web-development-javascript-react-next-node-and-more-with-experienced-instructor.html',
-    twitter: '@muhammadfiaz_',
+    twitter: '@karanin_kural',
     github: 'karankris',
     linkedin: 'https://www.linkedin.com/in/karanravichandar/',
-    blog: 'https://articles.muhammadfiaz.com',
-    medium: 'https://muhammad-fiaz.medium.com',
-    dev: 'https://dev.to/muhammadfiaz',
-    hashnode: 'https://muhammadfiaz.hashnode.dev',
-    discord: 'https://discord.gg/mXMhy2EX',
-    github_organisation: 'https://github.com/FiazTechnologies',
-    daily_dev: {
-      username: 'muhammadfiaz',
-      card: 'https://api.daily.dev/devcards/v2/JVyK3ICBzKPdM0rcDj1o4.png?type=wide&r=vde'
-    },
-    holopin: 'muhammadfiaz'
+    blog: 'https://hashnode.com/@karanr-dev',
+    dev: 'https://dev.to/karan_r_72c0435683b6e6a26',
+    hashnode: 'https://hashnode.com/@karanr-dev',
+    discord: 'https://discord.gg/mzasKp4g',
   },
   metadata: {
     description: `I'm a Full-Stack Developer who specializes in building real-time products and web solutions using the MERN stack. I love transforming ideas into functional, high-performance applications that solve real-world problems.`,

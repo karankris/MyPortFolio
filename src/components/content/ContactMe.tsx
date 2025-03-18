@@ -4,6 +4,7 @@ import AnimationContainer from '../utils/AnimationContainer';
 import { siteConfig } from '@/src/configs/config';
 import { Button, Input, Textarea } from '@nextui-org/react';
 import SectionHeader from '@/src/components/ui/SectionHeader';
+import InputField from '../ui/InputField';
 
 const ContactMe = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -89,7 +90,7 @@ const ContactMe = () => {
       <SectionHeader
         id="contactme"
         title="Contact Me"
-        content="Fill out the form below to contact me. Please, no spam. I strive to respond to all legitimate inquiries, but please be clear and concise in your message. Whether you have a question about my work, a project collaboration, or just want to connect, feel free to reach out. I look forward to hearing from you!"
+        content="Fill out the form below to contact me. Please, no spam. I strive to respond to all legitimate inquiries, but please be clear and concise in your message. Whether you have a question about my work, a need of a personal mentor or just want to connect, feel free to reach out. I look forward to hearing from you!"
       />
 
       <div className="w-full flex justify-between items-center flex-col mx-auto max-w-screen-xl">
@@ -112,47 +113,49 @@ const ContactMe = () => {
             encType="multipart/form-data"
           >
             <div>
-              <Input
-                isClearable={true}
+              <label htmlFor="" className='dark:text-white text-black'>Name</label>
+              <InputField
                 label="Name"
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                required
+                className='py-4 mt-1.5'
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-20  sm:grid-cols-2">
               <div>
-                <Input
-                  isClearable={true}
-                  label="Email"
-                  placeholder="Enter your email"
+                <label htmlFor="" className='dark:text-white text-black'>Email</label>
+                <InputField
                   type="email"
                   value={email}
+                  placeholder="Enter your email"
                   onChange={(e) => setEmail(e.target.value)}
-                  required
+                  label='Email'
+                  className='py-4 mt-1.5'
                 />
               </div>
 
-              <div>
-                <Input
-                  isClearable={true}
+              <div className=''>
+                <label htmlFor="" className='dark:text-white text-black'>Mobile</label>
+
+                <InputField
                   label="Phone"
                   placeholder="Enter your phone number"
                   type="tel"
-                  required
+                  className='py-4 mt-1.5'
                 />
               </div>
             </div>
 
             <div>
-              <Textarea
-                isClearable={true}
+            <label htmlFor="" className='dark:text-white text-black'>Message</label>
+              <InputField
                 label="Message"
                 placeholder="Enter your message"
                 rows={4}
-                required
+                type='textarea'
+                  className='mt-1.5'
               />
             </div>
 

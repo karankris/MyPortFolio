@@ -15,11 +15,9 @@ export const faqData: FAQItem[] = [
     title: 'Who are you?',
     content: (
       <>
-        Hey there! 👋 I'm Muhammad Fiaz, a Full Stack developer passionate about
-        coding since childhood. I build innovative solutions using a variety of
-        technologies like Next.js, Node.js, Python, TypeScript, Go, Rust,
-        Flutter, and GenAI. I'm also diving into MLOps and always eager to learn
-        new tools and techniques.
+        Hey there! 👋 I'm Karan ,a passionate full-stack developer and an upcoming mobile app dev, always eager to learn and grow.  
+        If you're interested in building amazing projects together, join me in my classes at Superproof,  
+        and let's level up our skills side by side!
         <br className="mb-2" />
         For more about me, check out my{' '}
         <Link
@@ -38,11 +36,7 @@ export const faqData: FAQItem[] = [
     title: 'What technologies do you use?',
     content: (
       <>
-        I am a full-stack developer with a focus on both frontend and backend
-        technologies. I mostly use tools like Next.js, TypeScript, Node.js,
-        Python (Django, Flask, FastAPI), MongoDB, and SQL for my regular basis
-        projects. I am also diving into Generative AI, Machine Learning, and
-        Data Science to build smarter, data-driven full-stack applications.
+     I am a full-stack developer with expertise in both frontend and backend technologies. My primary stack includes Next.js, TypeScript, TanStack Query, and Zustand for state management. For mobile development, I use React Native for iOS and Android. On the backend, I work with Node.js, Python MongoDB, and SQL. Additionally, I am exploring Generative AI, Machine Learning, and Data Science to create intelligent, data-driven applications.
         <br className="mb-2" />
         For more details on my tech stack and projects, please check out my{' '}
         <Link
@@ -58,14 +52,42 @@ export const faqData: FAQItem[] = [
     )
   },
   {
-    title: 'Can we hire you?',
+    title: 'About the class?',
     content: (
       <>
-        Yes, I am currently looking for job opportunities! Feel free to reach
-        out to me via email or Linkedin if you're interested in hiring me or
-        collaborating on exciting projects.
+As a full-stack development teacher, I focus on hands-on, project-based learning, ensuring that students grasp both front-end and back-end technologies through real-world applications. My classes typically begin with a brief theory session, followed by guided coding exercises and collaborative projects. I emphasize problem-solving and critical thinking, making complex concepts accessible. My approach is interactive and adaptable, catering to college students and adults looking to upskill. Special features include personalized feedback, industry insights, and practical assignments to build a strong portfolio.
         <br className="mb-2" />
         You can contact me through:
+        <ul className="list-disc pl-6 text-black dark:text-white text-sm">
+          <li>
+            Email:{' '}
+            <Link
+              href={`mailto:${siteConfig.social.email}`}
+              className="text-blue-500 hover:underline"
+            >
+              {siteConfig.social.email}
+            </Link>
+          </li>
+          <li>
+            {' '}
+            SuperProof{' '}
+            <Link
+              href={`mailto:${siteConfig.social.linkedin}`}
+              className="text-blue-500 hover:underline"
+            >
+              {siteConfig.social.superProof}
+            </Link>
+          </li>
+        </ul>
+      </>
+    )
+  },
+  {
+    title: 'How can I collaborate with you?',
+    content: (
+      <>
+        You can reach out to me via email or linkedIn. I’m open to collaboration
+        on projects or ideas. Feel free to contact me through:
         <ul className="list-disc pl-6 text-black dark:text-white text-sm">
           <li>
             Email:{' '}
@@ -87,37 +109,6 @@ export const faqData: FAQItem[] = [
             </Link>
           </li>
         </ul>
-      </>
-    )
-  },
-  {
-    title: 'How can I collaborate with you?',
-    content: (
-      <>
-        You can reach out to me via email or Discord. I’m open to collaboration
-        on projects or ideas. Feel free to contact me through:
-        <ul className="list-disc pl-6 text-black dark:text-white text-sm">
-          <li>
-            Email:{' '}
-            <Link
-              href={`mailto:${siteConfig.social.email}`}
-              className="text-blue-500 hover:underline"
-            >
-              {siteConfig.social.email}
-            </Link>
-          </li>
-          <li>
-            Discord:{' '}
-            <Link
-              href={siteConfig.social.discord}
-              className="text-blue-500 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Fiaz's Server
-            </Link>
-          </li>
-        </ul>
         <br className="mb-2" />
         For more details, you can check my contact information on my{' '}
         <Link
@@ -129,27 +120,6 @@ export const faqData: FAQItem[] = [
           GitHub page
         </Link>
         .
-      </>
-    )
-  },
-  {
-    title: 'Do you work on open-source projects?',
-    content: (
-      <>
-        Yes, I contribute to open-source projects! You can explore my
-        repositories and ongoing contributions on my GitHub. Feel free to
-        contribute or check out my work!
-        <br className="mb-2" />
-        Visit my{' '}
-        <Link
-          href={`https://github.com/${siteConfig.social.github}`}
-          className="text-blue-500 hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub page
-        </Link>{' '}
-        for more.
       </>
     )
   },
@@ -196,17 +166,6 @@ export const faqData: FAQItem[] = [
             </Link>{' '}
             – Buy me a coffee and support my work!
           </li>
-          <li>
-            <Link
-              href={siteConfig.social.sponsor}
-              className="text-blue-500 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub Sponsors
-            </Link>{' '}
-            – Sponsor me on GitHub to show your support!
-          </li>
         </ul>
         <br className="mb-2" />
         Visit my{' '}
@@ -223,42 +182,6 @@ export const faqData: FAQItem[] = [
     )
   },
   {
-    title: 'Do you offer freelance services?',
-    content: (
-      <>
-        Yes, I am available for freelance work. Please contact me{' '}
-        <Link
-          href={`mailto:${siteConfig.social.email}`}
-          className="text-blue-500 hover:underline"
-        >
-          via email
-        </Link>{' '}
-        or{' '}
-        <Link
-          href={siteConfig.social.discord}
-          className="text-blue-500 hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Discord
-        </Link>{' '}
-        to discuss your project details. I would be happy to explore how we can
-        collaborate!
-        <br className="mb-2" />
-        You can reach me through the contact information provided on my{' '}
-        <Link
-          href={`https://github.com/${siteConfig.social.github}`}
-          className="text-blue-500 hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub page
-        </Link>
-        .
-      </>
-    )
-  },
-  {
     title:
       "I tried to contact you but haven't received a response, what happened?",
     content: (
@@ -268,14 +191,14 @@ export const faqData: FAQItem[] = [
         tasks. If I missed your message by mistake, please feel free to reach
         out again.
         <br className="mb-2" />
-        To get a faster response, you can also create a notice through a{' '}
+        To get a faster response, you can also ping me through{' '}
         <Link
-          href={`https://github.com/${siteConfig.social.github}/${siteConfig.social.github}/discussions`}
+          href={siteConfig.social.linkedin}
           className="text-blue-500 hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub Discussion
+         LinkedIn
         </Link>{' '}
         or open an issue on my{' '}
         <Link
@@ -286,7 +209,7 @@ export const faqData: FAQItem[] = [
         >
           GitHub repository
         </Link>
-        . I try to keep track of discussions and issues more actively.
+        . I try to keep track of linkedin and issues more actively.
       </>
     )
   }

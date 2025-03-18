@@ -19,14 +19,6 @@ const AboutSection = () => {
         <AnimationContainer customClassName="w-full flex flex-col gap-5 mb-8">
           <p className="text-base text-gray-600 dark:text-gray-400">
             Hey there! 👋 I'm <strong>{siteConfig.author}</strong>, a Full-Stack Developer who builds real-time products and web solutions using the MERN stack. I love turning ideas into functional, high-performance applications
-            <Link
-              href={`https://github.com/${siteConfig.social.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white hover:underline transition-all ease"
-            >
-              GitHub profile
-            </Link>{' '}
             ✌️.
           </p>
 

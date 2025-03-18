@@ -15,9 +15,9 @@ export const navItemsSelected: { [key: string]: NavItemHeaderAnimation } = {
   '/projects': {
     name: 'Projects'
   },
-  '/blog': {
-    name: 'Courses'
-  }
+  // '/courses': {
+  //   name: 'Courses' // Fute development
+  // }
 };
 
 const LinksNav = () => {

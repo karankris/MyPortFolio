@@ -9,7 +9,6 @@ import SectionContainer from '../utils/SectionContainer';
 import SupportMe from '@/src/components/content/SupportMe';
 import FAQSection from '@/src/components/sections/FAQSection';
 import SkillsSection from '@/src/components/sections/SkillsSection';
-import HolopinBadges from '@/src/components/content/HolopinBadges';
 import { InternProject } from '../content/webProjects';
 
 const HomeSection = () => {
@@ -46,16 +45,6 @@ const HomeSection = () => {
       <AnimationContainer customClassName="w-full mt-16">
         <SkillsSection />
       </AnimationContainer>
-
-      {/* Skills Section */}
-      <AnimationContainer customClassName="w-full mt-16">
-        <HolopinBadges />
-      </AnimationContainer>
-
-      {/* Stats Section
-      <AnimationContainer customClassName="w-full mt-16">
-        <StatsSection />
-      </AnimationContainer> */}
 
       {/* Contact Section */}
       <AnimationContainer customClassName="w-full mt-16">

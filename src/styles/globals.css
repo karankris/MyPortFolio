@@ -566,3 +566,7 @@ table {
 .focus-jump:hover {
   animation: jump 0.3s ease-out;
 }
+
+.animate-spin-slow {
+  animation: spin-slow 5s linear infinite;
+}
