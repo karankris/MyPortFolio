@@ -46,44 +46,49 @@ const ContactMe = () => {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
 
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    formData.append("access_key", "ed9aec66-e5a8-4c05-81d9-790a314efe98");
+
+    const object = Object.fromEntries(formData);
+
+    // Pick only the required fields
+    const filteredData = {
+      name: object.name,
+      email: object.email,
+      phone: object.phone,
+      message: object.message,
+      access_key: 'ed9aec66-e5a8-4c05-81d9-790a314efe98',
+    };
+    const json = JSON.stringify(filteredData);
+
+    console.log("Filtered Form Data:", json);
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    });
     // Check if user is trying to send an email before the ratelimit window is up
-    const lastSubmittedTime = sessionStorage.getItem('lastSubmittedTime');
-    const lastEmail = sessionStorage.getItem('lastEmail');
     const currentTime = Date.now();
-    const rateLimit = siteConfig.contact.rateLimit;
-    const FIVE_MINUTES = rateLimit * 60 * 1000; // default 10 minutes in milliseconds
-
-    if (
-      lastSubmittedTime &&
-      currentTime - parseInt(lastSubmittedTime) < FIVE_MINUTES
-    ) {
-      // If less than 10 minutes have passed since last submission
-      setIsWaiting(true);
-      setWaitTime(
-        Math.ceil(
-          (FIVE_MINUTES - (currentTime - parseInt(lastSubmittedTime))) / 1000
-        )
-      ); // Show wait time in seconds
-      return;
-    }
-
-    if (lastEmail && lastEmail !== email) {
-      // If email is different and already used
-      setIsWaiting(true);
-      setWaitTime(Math.ceil(FIVE_MINUTES / 1000)); // Show 5 minutes wait time
-      return;
-    }
-
     // Simulate form submission and success
     setTimeout(() => {
       setIsSubmitted(true);
       sessionStorage.setItem('lastSubmittedTime', currentTime.toString());
       sessionStorage.setItem('lastEmail', email);
     }, 500);
-  };
+    const result = await response.json();
+    if (result.success) {
+      form.reset();
+
+    }
+  }
 
   return (
     <AnimationContainer customClassName="w-full">
@@ -105,7 +110,7 @@ const ContactMe = () => {
           </div>
         </div>
 
-        <div className="w-full flex justify-center items-center flex-col">
+        <div className="w-auto sm:w-full flex justify-center items-center flex-col ">
           <form
             onSubmit={handleSubmit}
             className="w-full space-y-4"
@@ -120,6 +125,8 @@ const ContactMe = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className='py-4 mt-1.5'
+                name="name"
+                required
               />
             </div>
 
@@ -132,7 +139,9 @@ const ContactMe = () => {
                   placeholder="Enter your email"
                   onChange={(e) => setEmail(e.target.value)}
                   label='Email'
+                  name='email'
                   className='py-4 mt-1.5'
+                  required
                 />
               </div>
 
@@ -142,20 +151,24 @@ const ContactMe = () => {
                 <InputField
                   label="Phone"
                   placeholder="Enter your phone number"
-                  type="tel"
+                  type="number"
                   className='py-4 mt-1.5'
+                  name='phone'
+                  required
                 />
               </div>
             </div>
 
             <div>
-            <label htmlFor="" className='dark:text-white text-black'>Message</label>
+              <label htmlFor="" className='dark:text-white text-black'>Message</label>
               <InputField
                 label="Message"
                 placeholder="Enter your message"
                 rows={4}
+                name='message'
                 type='textarea'
-                  className='mt-1.5'
+                className='mt-1.5'
+                required
               />
             </div>
 

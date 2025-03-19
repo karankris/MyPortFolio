@@ -11,6 +11,7 @@ interface FloatingLabelInputProps {
     rows?: number
     className?: string
     startIcon?: React.ReactNode;
+    name?:string
 }
 
 export default function InputField({
@@ -22,7 +23,8 @@ export default function InputField({
     placeholder = "",
     rows,
     className,
-    startIcon
+    startIcon,
+    name,
 }: FloatingLabelInputProps) {
     return (
         <div className="relative w-full">
@@ -41,6 +43,7 @@ export default function InputField({
                     required={required}
                     placeholder={placeholder}
                     rows={rows}
+                    name={name}
                     className={`peer w-full resize-none rounded-lg border bg-transparent px-3 py-2 pr-10 text-base outline-none transition-all      ${className} 
        ${error ? "border-red-500 text-red-500" : "border-gray-300 dark:text-white text-black"}
             focus:border-black dark:focus:border-white focus:ring-1 focus:ring-white hover:border-black dark:hover:border-white`}
@@ -54,6 +57,7 @@ export default function InputField({
                     onChange={onChange}
                     required={required}
                     placeholder={placeholder}
+                    name={name}
                     className={`peer w-full rounded-lg border bg-transparent px-3 py-2 pr-10 text-base outline-none transition-all
             ${className} 
             ${error ? "border-red-500 text-red-500" : "border-gray-300 dark:text-white text-black"}
