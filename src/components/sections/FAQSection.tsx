@@ -1,12 +1,13 @@
 'use client';
 import { Accordion, AccordionItem } from '@heroui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import AnimationContainer from '@/src/components/utils/AnimationContainer';
 import SectionHeader from '@/src/components/ui/SectionHeader';
 
 import { faqData } from '@/src/configs/faq';
 import Script from 'next/script';
-
+import { motion } from 'framer-motion';
+import { ChevronDown, ChevronUp } from "lucide-react";
 export default function FAQSection() {
   // FAQ schema markup in JSON-LD format for SEO
   const faqPageSchema = {
@@ -21,7 +22,15 @@ export default function FAQSection() {
       }
     }))
   };
+  const [openIndex, setOpenIndex] = useState<null | number>(null);
 
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+  console.log('====================================');
+  console.log("openIndex === index",openIndex);
+  console.log('====================================');
   return (
     <>
       <Script
@@ -38,23 +47,68 @@ export default function FAQSection() {
           content="Here are some common questions I receive. If you have any more questions, feel free to reach out!"
         />
 
-        <Accordion variant="splitted">
-          {faqData.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              aria-label={`Accordion ${index + 1}`}
-              title={
-                <span className="text-black dark:text-white text-sm">
-                  {faq.title}
-                </span>
-              }
+<div id="accordion-collapse" data-accordion="collapse">
+      {faqData.map((faq, index) => (
+        <div key={index}>
+          <h2 id={`accordion-collapse-heading-${index}`}>
+            <button
+              type="button"
+              className="flex items-center justify-between w-full p-5 font-medium text-gray-500 border  border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+              onClick={() => toggleAccordion(index)}
+              aria-expanded={openIndex === index}
+              aria-controls={`accordion-collapse-body-${index}`}
             >
-              <div className="text-black dark:text-white text-sm">
-                {faq.content}
-              </div>
-            </AccordionItem>
-          ))}
-        </Accordion>
+              <span className='text-sm font-medium flex text-left'>{faq.title}</span>
+              {openIndex === index ? (
+                <ChevronUp className="w-5 h-5" />
+              ) : (
+                <ChevronDown className="w-5 h-5" />
+              )}
+            </button>
+          </h2>
+          <motion.div
+            id={`accordion-collapse-body-${index}`}
+            className={openIndex === index ? "p-5 w-full border border-gray-200 dark:border-gray-700 text-black dark:text-white " : "overflow-hidden"}
+            aria-labelledby={`accordion-collapse-heading-${index}`}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            {faq.content}
+          </motion.div>
+        </div>
+      ))}
+    </div>
+
+{/* <div className="mx-auto space-y-2">
+      {faqData.map((item, index) => (
+        <div key={index} className="border rounded-lg overflow-hidden">
+          <button
+            className="w-full flex justify-between items-center px-4 py-3 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+            onClick={() => toggleAccordion(index)}
+          >
+            <span className="text-sm font-medium flex text-left">{item.title}</span>
+            {openIndex === index ? <ChevronUp className="w-5 h-5 justify-end" /> : <ChevronDown className="w-5 h-5" />}
+            <div
+              // animate={{ rotate: openIndex === index ? 180 : 0 }}
+              // transition={{ duration: 0.2 }}
+            >
+              {openIndex === index ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+            </div>
+          </button>
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-4 py-3 bg-white dark:bg-gray-900 text-black dark:text-white text-sm">
+              {item.content}
+            </div>
+          </motion.div>
+        </div>
+      ))}
+    </div> */}
       </AnimationContainer>
     </>
   );

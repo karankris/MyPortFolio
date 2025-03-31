@@ -96,7 +96,7 @@ const ProjectsSection = () => {
           <SearchInput
             value={projectSearch}
             onChange={(e) => setProjectSearch(e.target.value)}
-            placeholder="Search projects (Languages, frameworks, libraries, etc...)"
+            placeholder="Search projects here..."
             ariaLabel="Search projects"
           />
 
