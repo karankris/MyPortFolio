@@ -110,7 +110,7 @@ const ContactMe = () => {
           </div>
         </div>
 
-        <div className="w-auto sm:w-full flex justify-center items-center flex-col ">
+        <div className="w-auto sm:w-full flex justify-center items-center  ">
           <form
             onSubmit={handleSubmit}
             className="w-full space-y-4"
@@ -124,13 +124,13 @@ const ContactMe = () => {
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className='py-4 mt-1.5'
+                className='py-4 mt-1.5 pr-0'
                 name="name"
                 required
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-20  sm:grid-cols-2">
+            <div className="grid  grid-cols-1 gap-20  sm:grid-cols-2">
               <div>
                 <label htmlFor="" className='dark:text-white text-black'>Email</label>
                 <InputField
@@ -140,7 +140,7 @@ const ContactMe = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   label='Email'
                   name='email'
-                  className='py-4 mt-1.5'
+                  className='py-4 mt-1.5 pr-0'
                   required
                 />
               </div>
@@ -152,7 +152,7 @@ const ContactMe = () => {
                   label="Phone"
                   placeholder="Enter your phone number"
                   type="number"
-                  className='py-4 mt-1.5'
+                  className='py-4 mt-1.5 pr-0'
                   name='phone'
                   required
                 />
@@ -167,7 +167,7 @@ const ContactMe = () => {
                 rows={4}
                 name='message'
                 type='textarea'
-                className='mt-1.5'
+                className='mt-1.5 pr-0'
                 required
               />
             </div>

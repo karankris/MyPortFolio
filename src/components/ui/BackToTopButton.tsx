@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Button } from '@heroui/react'
-import { DynamicIcon } from 'lucide-react/dynamic';
+import {  ChevronUp } from "lucide-react";
 
 const BackToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -33,10 +33,10 @@ const BackToTopButton = () => {
     <div>
     <Button
       onPress={scrollToTop}
-      className="fixed bottom-5 w-5 h-5 !bg-white right-8 p-2.5 shadow-black dark:shadow-white shadow-[rgba(0,0,0,0.07)_0px_1px_2px,rgba(0,0,0,0.07)_0px_2px_4px,rgba(0,0,0,0.07)_0px_4px_8px,rgba(0,0,0,0.07)_0px_8px_16px,rgba(0,0,0,0.07)_0px_16px_32px,rgba(0,0,0,0.07)_0px_32px_64px] dark:shadow-[rgba(0,0,0,0.1)_0px_10px_50px]
+      className="fixed bottom-5 w-10 h-10 !bg-white right-8 p-2.5 shadow-black dark:shadow-white shadow-[rgba(0,0,0,0.07)_0px_1px_2px,rgba(0,0,0,0.07)_0px_2px_4px,rgba(0,0,0,0.07)_0px_4px_8px,rgba(0,0,0,0.07)_0px_8px_16px,rgba(0,0,0,0.07)_0px_16px_32px,rgba(0,0,0,0.07)_0px_32px_64px] dark:shadow-[rgba(0,0,0,0.1)_0px_10px_50px]
   text-black rounded-full focus:outline-none transition-all ease-in-out  dark:text-black  bg-transparent "
     >
-   <DynamicIcon name="arrow-up"  size={48} />
+           <ChevronUp className="w-6 h-6" />
     </Button>
     </div>
   );
