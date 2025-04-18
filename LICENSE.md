@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 [Karan R](https://github.com/karankris)
+Copyright (c) 2025 [Karan R](https://github.com/karankris)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
