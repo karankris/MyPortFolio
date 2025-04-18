@@ -29,7 +29,7 @@ export default function FAQSection() {
     setOpenIndex(openIndex === index ? null : index);
   };
   console.log('====================================');
-  console.log("openIndex === index",openIndex);
+  console.log("openIndex === index", openIndex);
   console.log('====================================');
   return (
     <>
@@ -47,68 +47,38 @@ export default function FAQSection() {
           content="Here are some common questions I receive. If you have any more questions, feel free to reach out!"
         />
 
-<div id="accordion-collapse" data-accordion="collapse">
-      {faqData.map((faq, index) => (
-        <div key={index}>
-          <h2 id={`accordion-collapse-heading-${index}`}>
-            <button
-              type="button"
-              className="flex items-center justify-between w-full p-5 font-medium text-gray-500 border  border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-              onClick={() => toggleAccordion(index)}
-              aria-expanded={openIndex === index}
-              aria-controls={`accordion-collapse-body-${index}`}
-            >
-              <span className='text-sm font-medium flex text-left'>{faq.title}</span>
-              {openIndex === index ? (
-                <ChevronUp className="w-5 h-5" />
-              ) : (
-                <ChevronDown className="w-5 h-5" />
-              )}
-            </button>
-          </h2>
-          <motion.div
-            id={`accordion-collapse-body-${index}`}
-            className={openIndex === index ? "p-5 w-full border border-gray-200 dark:border-gray-700 text-black dark:text-white " : "overflow-hidden"}
-            aria-labelledby={`accordion-collapse-heading-${index}`}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            {faq.content}
-          </motion.div>
-        </div>
-      ))}
-    </div>
-
-{/* <div className="mx-auto space-y-2">
-      {faqData.map((item, index) => (
-        <div key={index} className="border rounded-lg overflow-hidden">
-          <button
-            className="w-full flex justify-between items-center px-4 py-3 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
-            onClick={() => toggleAccordion(index)}
-          >
-            <span className="text-sm font-medium flex text-left">{item.title}</span>
-            {openIndex === index ? <ChevronUp className="w-5 h-5 justify-end" /> : <ChevronDown className="w-5 h-5" />}
-            <div
-              // animate={{ rotate: openIndex === index ? 180 : 0 }}
-              // transition={{ duration: 0.2 }}
-            >
-              {openIndex === index ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+        <div id="accordion-collapse" data-accordion="collapse">
+          {faqData.map((faq, index) => (
+            <div key={index} className='me-10'>
+              <h2 id={`accordion-collapse-heading-${index}`}>
+                <button
+                  type="button"
+                  className="flex items-center justify-between w-full p-5 font-medium text-gray-500 border  border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                  onClick={() => toggleAccordion(index)}
+                  aria-expanded={openIndex === index}
+                  aria-controls={`accordion-collapse-body-${index}`}
+                >
+                  <span className='text-sm font-medium flex text-left overflow-clip text-ellipsis w-40 sm:w-full'>{faq.title}</span>
+                  {openIndex === index ? (
+                    <ChevronUp className="w-5 h-5" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5" />
+                  )}
+                </button>
+              </h2>
+              <motion.div
+                id={`accordion-collapse-body-${index}`}
+                className={openIndex === index ? "p-5 w-full border border-gray-200 dark:border-gray-700 text-black dark:text-white " : "overflow-hidden"}
+                aria-labelledby={`accordion-collapse-heading-${index}`}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                {faq.content}
+              </motion.div>
             </div>
-          </button>
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="px-4 py-3 bg-white dark:bg-gray-900 text-black dark:text-white text-sm">
-              {item.content}
-            </div>
-          </motion.div>
+          ))}
         </div>
-      ))}
-    </div> */}
       </AnimationContainer>
     </>
   );

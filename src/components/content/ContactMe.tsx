@@ -98,7 +98,7 @@ const ContactMe = () => {
         content="Fill out the form below to contact me. Please, no spam. I strive to respond to all legitimate inquiries, but please be clear and concise in your message. Whether you have a question about my work, a need of a personal mentor or just want to connect, feel free to reach out. I look forward to hearing from you!"
       />
 
-      <div className="w-full flex justify-between items-center flex-col mx-auto max-w-screen-xl">
+      <div className=" flex justify-between items-center flex-col mx-auto ">
         <div className="w-full flex justify-between items-center flex-col lg:flex-row gap-6 mb-10">
           <div className="w-full rounded-xl border border-gray-800 hover:border-gray-900 bg-white dark:bg-[#080809] p-4 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] sm:p-6 transition ease">
             <h3 className="font-bold text-1xl tracking-tight text-foreground dark:text-white text-start">
@@ -110,10 +110,10 @@ const ContactMe = () => {
           </div>
         </div>
 
-        <div className="w-auto sm:w-full flex justify-center items-center  ">
+        <div className="w-auto  flex justify-center items-center  me-16">
           <form
             onSubmit={handleSubmit}
-            className="w-full space-y-4"
+            className=" space-y-4"
             method="POST"
             encType="multipart/form-data"
           >

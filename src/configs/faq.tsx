@@ -183,7 +183,7 @@ As a full-stack development teacher, I focus on hands-on, project-based learning
   },
   {
     title:
-      "I tried to contact you but haven't received a response, what happened?",
+      "I tried to contact you but haven't received a response ?",
     content: (
       <>
         I apologize if I missed your message or if I was slow to respond.
