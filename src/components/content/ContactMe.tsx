@@ -200,7 +200,7 @@ const ContactMe = () => {
           <div className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-lg text-center">
             <h3 className="font-bold text-lg text-foreground dark:text-white mb-4">
               Thank you for reaching out!
-              <span className="text-black dark:text-white">🎉</span>
+              <span className="text-black dark:text-white"> 🎉</span>
             </h3>
             <p className="text-base text-foreground dark:text-gray-400">
               Your message has been sent to {siteConfig.social.email}{' '}
