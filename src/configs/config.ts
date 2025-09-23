@@ -21,6 +21,7 @@ export const siteConfig: {
     hashnode: string;
     discord: string;
     freelance:string;
+    gitHubUrl:string;
   };
   chatbot: {
     rateLimit: number;
@@ -60,6 +61,7 @@ export const siteConfig: {
     dev: 'https://dev.to/karan_r_72c0435683b6e6a26',
     hashnode: 'https://hashnode.com/@karanr-dev',
     discord: 'https://discord.gg/mzasKp4g',
+    gitHubUrl:'https://github.com/karankris'
   },
   metadata: {
     description: `I'm a Full-Stack Developer who specializes in building real-time products and web solutions using the MERN stack. I love transforming ideas into functional, high-performance applications that solve real-world problems.`,
