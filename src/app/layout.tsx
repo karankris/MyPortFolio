@@ -16,6 +16,7 @@ import ProgressBar from '@/src/components/ui/progress';
 import BackToTopButton from '@/src/components/ui/BackToTopButton';
 import dynamic from 'next/dynamic';
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 // Dynamically import the Chatbot component with ssr: false (render only client-side)
 const Chatbot = dynamic(() => import('@/src/components/ui/ChatBot'), {
@@ -52,6 +53,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 
       <body className="transition ease-in-out min-h-screen">
         <HeroUIProvider>
+        <ToastContainer theme='colored' stacked/>
           <ThemeProvider>
             <SessionProvider>
               {/* Show progress bar during loading */}
