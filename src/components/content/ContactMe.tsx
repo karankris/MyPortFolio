@@ -2,17 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import AnimationContainer from '../utils/AnimationContainer';
 import { siteConfig } from '@/src/configs/config';
-import { Button, Input, Textarea } from '@nextui-org/react';
+import { Button, Input } from '@nextui-org/react';
 import SectionHeader from '@/src/components/ui/SectionHeader';
 import InputField from '../ui/InputField';
+import { useEmailPost } from '@/src/hooks/useEmailPost';
 
 const ContactMe = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [isWaiting, setIsWaiting] = useState(false);
-  const [waitTime, setWaitTime] = useState(0); // In seconds
   const [userInfo, setUserInfo] = useState<any>({});
+  const { isSendingMail, sendEmail, isMailSent, setIsMailSent } = useEmailPost();
 
   useEffect(() => {
     if (siteConfig.contact.debug) {
@@ -46,47 +45,21 @@ const ContactMe = () => {
     }
   }, []);
 
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
-
-    formData.append("access_key", "ed9aec66-e5a8-4c05-81d9-790a314efe98");
-
-    const object = Object.fromEntries(formData);
-
-    // Pick only the required fields
-    const filteredData = {
-      name: object.name,
-      email: object.email,
-      phone: object.phone,
-      message: object.message,
-      access_key: 'ed9aec66-e5a8-4c05-81d9-790a314efe98',
-    };
-    const json = JSON.stringify(filteredData);
-
-    console.log("Filtered Form Data:", json);
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: json
+    const data = Object.fromEntries(formData);
+    const res = await sendEmail({
+      userEmail: data.email as string,
+      userSubject: data.message as string,
+      userMobile: data.phone as string,
+      userName: data.name as string
     });
-    // Check if user is trying to send an email before the ratelimit window is up
-    const currentTime = Date.now();
-    // Simulate form submission and success
-    setTimeout(() => {
-      setIsSubmitted(true);
-      sessionStorage.setItem('lastSubmittedTime', currentTime.toString());
-      sessionStorage.setItem('lastEmail', email);
-    }, 500);
-    const result = await response.json();
-    if (result.success) {
+    if (res) {
       form.reset();
-
+      setName('');
+      setEmail('');
     }
   }
 
@@ -182,48 +155,50 @@ const ContactMe = () => {
                 />
               </div>
             )}
-
             <Button
               type="submit"
-              className="flex items-center justify-center rounded-xl px-5 py-3 text-white dark:text-black bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 shadow-sm transition ease mx-auto"
+              className="flex items-center justify-center rounded-xl px-5 py-3 text-white dark:text-black bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 shadow-sm transition ease mx-auto disabled:cursor-not-allowed"
+              disabled={isSendingMail}
             >
-              <span className="font-medium text-base">Send</span>
+              {isSendingMail ? (
+                <>
+                  <svg aria-hidden="true" className="inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+                  </svg>
+                  <span className="font-medium text-base">Sending...</span>
+                </>
+              ) : (
+                <>
+                  <span className="font-medium text-base">Send</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="ml-3 h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </>
+              )}
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-3 h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
             </Button>
           </form>
-
-          {/* Show warning message if the user tries to submit before waiting */}
-          {isWaiting && (
-            <div className="mt-4 text-red-500">
-              <p>
-                You need to wait {waitTime} second{waitTime !== 1 && 's'} before
-                sending another message.
-              </p>
-            </div>
-          )}
         </div>
       </div>
 
       {/* Success Popup */}
-      {isSubmitted && (
+      {isMailSent && (
         <div className="fixed top-0 left-0 w-full h-full bg-black/60 flex items-center justify-center z-50">
           <div className="bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-lg text-center">
             <h3 className="font-bold text-lg text-foreground dark:text-white mb-4">
-              Thank you, {name}!{' '}
+              Thank you for reaching out!
               <span className="text-black dark:text-white">🎉</span>
             </h3>
             <p className="text-base text-foreground dark:text-gray-400">
@@ -231,8 +206,8 @@ const ContactMe = () => {
               successfully.
             </p>
             <Button
-              onPress={() => setIsSubmitted(false)}
               className="mt-4 px-4 py-2 rounded-xl bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition ease"
+              onPress={() => setIsMailSent(false)}
             >
               Close
             </Button>
