@@ -55,7 +55,7 @@
     "next": "^15.3.6",
     "next-auth": "^4.24.11",
     "node-fetch": "^3.3.2",
-    "nodemailer": "^7.0.6",
+    "nodemailer": "^8.0.5",
     "nprogress": "^0.2.0",
     "portfolio": "link:",
     "prettier-plugin-tailwindcss": "^0.6.11",

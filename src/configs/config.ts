@@ -52,7 +52,7 @@ export const siteConfig: {
     exp:'https://www.linkedin.com/in/karanravichandar/details/experience/',
     kofi: 'https://ko-fi.com/karan3009',
     sponsor: 'https://ko-fi.com/karan3009',
-    email: 'rkaran0930@gmail.com',
+    email: 'karaninkuralofficial@gmail.com',
     superProof:'https://www.superprof.co.in/master-full-stack-programming-learn-web-development-javascript-react-next-node-and-more-with-experienced-instructor.html',
     twitter: '@karanin_kural',
     github: 'karankris',

@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import AnimationContainer from '../utils/AnimationContainer';
 import ExternalLink from './ExternalLink';

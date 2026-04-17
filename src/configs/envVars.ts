@@ -1,4 +1,3 @@
-'use client';
 export function validateEnvVars() {
   const requiredEnvVars = [
     'GITHUB_TOKEN',
@@ -22,6 +21,14 @@ export function validateEnvVars() {
   process.env.SITE_URL = process.env.SITE_URL || 'http://localhost:3000'; // Default URL
   process.env.NEXTAUTH_SECRET =
     process.env.NEXTAUTH_SECRET || 'default_nextauth_secret'; // Default secret
+
+  // Warn if mail env vars are missing (contact form will not work without them)
+  const mailEnvVars = ['MAIL_HOST', 'MAIL_PORT', 'MAIL_PASSWORD', 'MAIL_TO'];
+  mailEnvVars.forEach((envVar) => {
+    if (!process.env[envVar]) {
+      console.warn(`Warning: Missing mail environment variable: ${envVar}. Contact form emails will not be sent.`);
+    }
+  });
 }
 
 export function getEnvVars() {

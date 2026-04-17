@@ -1,4 +1,3 @@
-'use client';
 import { siteConfig } from '@/src/configs/config';
 
 export interface ExperienceEntry {
