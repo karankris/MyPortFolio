@@ -1,16 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import { siteConfig } from '@/src/configs/config'; // Import siteConfig
-import AnimationContainer from '../utils/AnimationContainer';
+import { siteConfig } from '@/src/configs/config';
 import Link from 'next/link';
 import TypewriterText from '../effects/Typewritter';
 
 const Hero = () => {
   return (
     <div className="w-full flex justify-between flex-col-reverse lg:flex-row items-center">
-      {/* Content Section */}
-      <AnimationContainer customClassName="flex flex-col items-center justify-between lg:items-start p-0 lg:pr-8">
+      {/* Content Section — no AnimationContainer so hero text is visible at first paint */}
+      <div className="flex flex-col items-center justify-between lg:items-start p-0 lg:pr-8">
         <p className="text-lg text-gray-800 dark:text-gray-200 mb-2">
           <span className="font-mono text-teal-500 dark:text-teal-300">
             Hello!{' '}
@@ -44,10 +43,10 @@ const Hero = () => {
             Buy Me a Coffee  ☕️
           </Link>
         </div>
-      </AnimationContainer>
+      </div>
 
-      {/* Image Section */}
-      <AnimationContainer customClassName="w-[150px] sm:w-[250px] relative mb-6 lg:mb-0">
+      {/* Image Section — no AnimationContainer so profile image (LCP) is visible at first paint */}
+      <div className="w-[150px] sm:w-[250px] relative mb-6 lg:mb-0">
         <Image
           alt={siteConfig.author}
           src={siteConfig.profile_image}
@@ -56,7 +55,7 @@ const Hero = () => {
           priority
           className="rounded-[12px] filter grayscale hover:grayscale-0 transition ease bg-background/30 dark:bg-background/30"
         />
-      </AnimationContainer>
+      </div>
     </div>
   );
 };

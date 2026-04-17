@@ -1,5 +1,3 @@
-'use client';
-
 import AboutMe from '../content/AboutMe';
 import ContactMe from '../content/ContactMe';
 import CurrentTimeLineExp from '../content/CurrentTimeLineExp';

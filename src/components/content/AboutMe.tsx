@@ -1,5 +1,3 @@
-'use client';
-
 import AnimationContainer from '../utils/AnimationContainer';
 import { siteConfig } from '@/src/configs/config';
 import SectionHeader from '@/src/components/ui/SectionHeader';

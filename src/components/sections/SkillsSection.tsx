@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import AnimationContainer from '@/src/components/utils/AnimationContainer';
 import SectionHeader from '@/src/components/ui/SectionHeader';
@@ -19,9 +17,10 @@ const MySkills = () => {
             <Image
               src="https://skillicons.dev/icons?i=androidstudio,apple,bash,bootstrap,docker,express,figma,git,github,githubactions,gitlab,html,java,js,jquery,linkedin,linux,mongodb,mysql,nextjs,nodejs,powershell,py,pytorch,react,redux,stackoverflow,svg,tailwind,tensorflow,ts,vercel,vite,vscode,wordpress&perline=10"
               alt="My Skills"
-              className="relative w-full h-full max-w-3xl"
-              width={500}
-              height={500}
+              className="relative w-full h-auto max-w-3xl"
+              width={768}
+              height={480}
+              sizes="(max-width: 768px) 100vw, 768px"
             />
           </div>
         </div>

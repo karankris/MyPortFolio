@@ -54,6 +54,10 @@ const Head = () => {
       <meta name="twitter:image" content={meta.twitter.image} />
       <link rel="canonical" href={meta.url} />
       <link rel="icon" href={meta.link[0].href} />
+      <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+      <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
+      <link rel="preconnect" href="https://skillicons.dev" />
+      <link rel="dns-prefetch" href="https://skillicons.dev" />
 
       {/* Add JSON-LD Schema */}
       <Script

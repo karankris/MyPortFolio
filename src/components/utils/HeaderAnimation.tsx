@@ -28,7 +28,7 @@ const HeaderAnimation = ({ children }: { children: React.ReactNode }) => {
       )}
       initial={animation.hide}
       animate={animation.show}
-      transition={{ delay: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       {children}
     </motion.header>
